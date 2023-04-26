@@ -20,6 +20,7 @@ func main() {
 	var kubeconfig *string
 
 	// 설정파일 만들기
+	// home 파트: 설정파일 중 $HOME/.kube/config 파일을 건드린다는 의미. 이 파일이 제대로 살아있지 않으면 이후 작업이 안 됨.
 	// 파일명, 홈디렉토리, 클라이언트셋 등을 만듦
 	if home := homedir.HomeDir(); home != "" {
 		kubeconfig = flag.String("kubeconfig", filepath.Join(home, ".kube", "config"), "(optional) absolute path to the kubeconfig file")
@@ -40,7 +41,7 @@ func main() {
 	// 디폴트 네임스페이스에 디플로이먼트 만들 거라고 하기
 	deploymentsClient := clientset.AppsV1().Deployments(apiv1.NamespaceDefault)
 
-	// deployment 정의 내리기 (그 yaml 파일을 그대로 코드로 옮긴 모양새)
+	// deployment 정의 내리기 (yaml 파일을 그대로 코드로 옮긴 모양새지만 yaml 파일은 보이지 않음)
 	deployment := &appsv1.Deployment{ // apiVersion
 		ObjectMeta: metav1.ObjectMeta{ // metadata의 name
 			Name: "demo-deployment",
