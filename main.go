@@ -150,5 +150,6 @@ func main() {
 	//dpl := makeDeployment(dp)
 
 	//realDeploy(dpl)
+	ready.ShootDeploy(dpl)
 
 }
