@@ -1,0 +1,11 @@
+<만들고 싶은 파드>
+- nginx를 메인으로 함 -> 어떤 것은 nginx, 어떤 것은 centos, 어떤 것은 wordpress 이런 식으로 가보기
+- deployment 만드는 파트를 interface, func, struct 등으로 분리시켜서 main함수를 심플하게 만들고 싶음
+- deployment 부분의 struct에다가 이름만 붙이면 원하는 deployment를 만들수 있는 식으로
+- deployment 3개를 같이 만들고 순차적으로 지울 수 있도록 goroutine, waitgroup, mutex 등을 활용하기
+
+<구조 설계>
+- struct에 원하는 변수들을 다 셋팅
+- struct에 값 넣을 수 있는 함수(setter 역할) 만들기
+- struct에 setter로 들어간 값들이 deployment 짜는 틀에 들어가도록 함수 만들기
+- 틀을 진짜 deployment로 만들수 있도록 실행하기 (이 과정에서 홈디렉토리 config 확인하는 함수도 분리해주면 좋을 듯)
